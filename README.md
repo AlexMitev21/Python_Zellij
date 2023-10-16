@@ -1,2 +1,1 @@
-# My_Zellij
-# Zellij-hepta
+# This is a README file, for the Python_Zellij
