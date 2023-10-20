@@ -201,7 +201,7 @@
                                 {% if field == sortable_keys[0] and field not in hideable_keys %}
                                     <th>
                                         {{ field }}
-                                        <i class="fa fa-sort-amount-asc sort-asc"></i>
+                                        <i class="fa fa-sort-amount-asc sort-asc scrollable-div"></i>
                                     </th>
                                 {% elif field not in hideable_keys %}
                                     <th>
@@ -233,8 +233,10 @@
                                         {% for item in fld_f_list %}
                                             {% if item.id is defined %}
                                                 {% set record_url = segments[0] + "?selectedMenuItem=" + segments[0].replace("/list/", "/display/") + "/" + item["table"] + "?search=" + item["fields"]["ID"] %}
-                                                <a href="{{ record_url }}"
-                                                   target="_blank">{{ item["fields"]["UI_Name"] }}</a>
+                                                {% for link in links %}
+    <a href="{{ link.url }}" target="_blank">{{ link.text }}</a>
+{% endfor %}
+
                                                 {% if not loop.last %}, {% endif %}
                                             {% else %}
                                                 {{ item }}{% if not loop.last %}, {% endif %}
@@ -312,8 +314,8 @@
                                             {% for item in fld_f_list %}
                                                 {% if item.id is defined %}
                                                     {% set record_url = segments[0] + "?selectedMenuItem=" + segments[0].replace("/list/", "/display/") + "/" + item["table"] + "?search=" + item["fields"]["ID"] %}
-                                                    <a href="{{ record_url }}"
-                                                       target="_blank">{{ item["fields"]["UI_Name"] }}</a>
+                                                    <a href="{{ record_url }}" target="_blank">{{ item["fields"]["UI_Name"] }}</a>
+
                                                     {% if not loop.last %}, {% endif %}
                                                 {% else %}
                                                     {{ item }}{% if not loop.last %}, {% endif %}

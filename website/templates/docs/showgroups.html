@@ -63,7 +63,16 @@
                                     </td>
                                 {% else %}
                                     <td>
-                                        <div style="height: 25vh; overflow-y: scroll">{{ item[field] }}</div>
+                                        <div style="height: 10vh; overflow-y: auto; border: 1px solid #ccc; padding: 10px; margin-bottom: 20px;">
+                                            {% if item[field].startswith('http://') or item[field].startswith('https://') %}
+                                                <a href="{{ item[field] }}" target="_blank">{{ item[field] }}</a>
+                                            {% else %}
+                                                {{ item[field] }}
+                                            {% endif %}
+                                        </div>
+                                        
+                                        
+                                        
                                     </td>
                                 {% endif %}
                             {% endfor %}
