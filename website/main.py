@@ -12,7 +12,7 @@ def create_app(test_config=None):
     app = Flask(__name__, instance_relative_config=True)
     app.config.from_mapping(
             SECRET_KEY="MQCpsXZBNm3cXtbFQ3y6g6ZA",
-            SYMMETRIC_KEYFILE=os.path.join(app.instance_path, "../../../ZellijSecrets", "secretkeyfile.bytes"),
+            SYMMETRIC_KEYFILE=os.path.join(app.instance_path, "../../ZellijSecrets", "secretkeyfile.bytes"),
             DATABASE_USER="root",
             DATABASE_PASSWORD="",
             DATABASE_NAME="zellij$website",
@@ -58,6 +58,8 @@ def create_app(test_config=None):
     app.register_blueprint(error.bp)
     
     return app
+
+app = create_app()
 
 if __name__ == '__main__':
     #from website import db

@@ -18,7 +18,7 @@ from website.DataScraper import DataScraper
 def get_db():
     if "db" not in g:
         g.db = MySQLdb.connect(
-            user="test", passwd="test", db="test", port=3306, host="192.168.100.6"
+            user="AlexMitev21", passwd="Winter12!!@28", db="AlexMitev21$default", port=3306, host="AlexMitev21.mysql.pythonanywhere-services.com"
         )
     return g.db
 
@@ -76,7 +76,7 @@ def encrypt(txt, keyfile=None, key=None):
     # key = nacl.utils.random(nacl.secret.SecretBox.KEY_SIZE)
     if not key:
         if not keyfile:
-            keyfile = current_app.config["SYMMETRIC_KEYFILE"]
+            keyfile = "../Python_Zellij/secret/secretkeyfile.bytes"
         with open(keyfile, "rb") as f:
             key = f.read()
     elif len(key) != nacl.secret.SecretBox.KEY_SIZE:
@@ -93,7 +93,7 @@ def decrypt(bytestring, keyfile=None, key=None):
     # return ""
     if not key:
         if not keyfile:
-            keyfile = current_app.config["SYMMETRIC_KEYFILE"]
+            keyfile = "../Python_Zellij/secret/secretkeyfile.bytes"
         with open(keyfile, "rb") as f:
             key = f.read()
     elif len(key) != nacl.secret.SecretBox.KEY_SIZE:
@@ -106,7 +106,6 @@ def decrypt(bytestring, keyfile=None, key=None):
         return plaintext.decode("utf-8")
     except Exception:
         return ""
-
 
 def generate_airtable_schema(apikey, db=None):
     if not db:

@@ -1,0 +1,15 @@
+@prefix crm: <http://www.cidoc-crm.org/cidoc-crm/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+<https://linked.art/example/models/visual_work> a crm:E36_Visual_Item ;
+    rdfs:label "Thing_label_value" ;
+    crm:P67i_is_referred_to_by <https://linked.art/example/conceptual_object/173_1>,
+        <https://linked.art/example/conceptual_object/426_1> .
+
+<https://linked.art/example/conceptual_object/173_1> a crm:E33_Linguistic_Object .
+
+<https://linked.art/example/conceptual_object/426_1> a crm:D1_Digital_Object ;
+    crm:P2_has_type <https://linked.art/example/type/427_1> .
+
+<https://linked.art/example/type/427_1> a crm:E55_Type .
+
