@@ -1,8 +1,6 @@
-# Zellij
+# Zellij Setup
 
-## Zellij Test ENV Setup
-
-This document explains a detailed setup for the Zellij, and the Zellij ENV locally: 
+This part of the document explains a detailed setup for the Zellij, and the Zellij ENV locally: 
 First you need to download the file of the actual Zellij. You can have to options: 
 
 * Option A)
@@ -56,7 +54,9 @@ COPY . .
 CMD ["python3", "-m", "flask", "run", "--host=0.0.0.0"]
 ```
 
-5. Edit the <i>docker-compose.yml</i> You can open it, and replace it with the following: 
+5. Edit the <i>docker-compose.yml</i> You can open it, and replace it with the following:
+   -Delete the services for Zellij Field.
+<img width="1433" alt="Screenshot 2023-10-23 at 17 29 20" src="https://github.com/takinsolutions/Zellij/assets/143809569/679893d1-70cb-4f6a-b1dd-40078ed59192">
 
 ```
 version: '3.1'
@@ -84,30 +84,92 @@ services:
       - PMA_ARBITRARY=1
 ```
 
-6. Navigate to the instance folder, and edit the <i> config.py </i>
+6. Navigate to the instance folder, and edit the <i> config.py.</i> Delete the first part of the Symmetric_Keyfile so it looks like this: 
+SYMMETRIC_KEYFILE="..secret/secretkeyfile.bytes" You can actually copy and replace the whole config.py file with the below informatio:
 
 ```
 SECRET_KEY="MQCpsXZBNm3cXtbFQ3y6g6ZA"
-SYMMETRIC_KEYFILE="../Zellij-Master/secret/secretkeyfile.bytes"
+SYMMETRIC_KEYFILE="../Zellij-master/secret/secretkeyfile.bytes"
 UPLOAD_FOLDER="/Zellij/uploads"
 ```
-8. Afterwards, you navigate to the directory where the Zellij-master has been installed and you shall create a new virtual ENV: 
+
+7. Now you would have to go to the website folder, and then change the <i>db.py</i>
+   Change the line that says:
 ```
-python -m venv FOLDER_NAME
-python -m flask --app ./website/main.py  run --host=0.0.0.0 --reload
+def get_db():
+    if "db" not in g:
+        g.db = MySQLdb.connect(
+            user="test", passwd="test", db="test", port=3306, host="localhost"
+        )
+    return g.db
 ```
-REMEMBER! Replace the <i> FOLDER_NAME </i> with the actual name of the folder
+
+* Change the host. From <i>localhost</i> to your actual ipaddress of the local machine.
+
+You can find your actual ip address, by opennig a terminal, and running the following: 
+```
+ifconfig
+```
+If you are using Wi-fi Connection it should be in the en0 or en1 line.
+Once you have found your ip address, replace it in the actual code so it looks something like this:
+```
+def get_db():
+    if "db" not in g:
+        g.db = MySQLdb.connect(
+            user="test", passwd="test", db="test", port=3306, host="192.168.100.6"
+    return g.db
+```
+
+8. Afterwards, you navigate to the directory where the Zellij-master has been installed and you shall create a new virtual ENV.
+   If you are using the Visaul Code Studio, you can open a New Terminal from the program:
+<img width="1029" alt="Screenshot 2023-10-23 at 17 49 32" src="https://github.com/takinsolutions/Zellij/assets/143809569/127e9614-3b1f-4188-a466-449a1560399e">
+
+```
+python -m venv Zellij
+source Zellij/bin/activate
+pip3 install -r requirements.txt
+```
 
 9. Lastly, you shall open a terminal and run the following commands:
 
 ```
-docker-compose up
-
+docker-compose up -d
+python -m flask --app ./website/main.py  run --host=0.0.0.0 --reload -p 8081   
 ```
-10. The website must be runnig and you should be able to access it to the localhost:8080
+The website must be runnig and you should be able to access it to the localhost:8081
+(Or the specified port you have choosen to use for this instance)
+
+10. Setting up the database and the phpAdmin: 
+
+* Navigate to the <i> docker-compose.yml </i> and find the line that says <i> ports </i>
+```
+  ports:
+      - 8090:80
+```
+Based on the described ports, you can access the PhPMyAdmin fon that ports on the local dev.
+It should look like this: 
+
+![Screenshot 2023-10-23 at 18 15 36](https://github.com/takinsolutions/Zellij/assets/143809569/bc72d10e-a4e1-466b-9916-5235eef179d0)
+
+Now, you need to login to the database: 
+Server: <i> db </i>
+Username: <i> test </i>
+Password: <i> test </i>
+
+The moment you have logged in, the default screen must look like this: 
+![Screenshot 2023-10-23 at 18 20 51](https://github.com/takinsolutions/Zellij/assets/143809569/8d36c7f1-ca72-4ec4-bc08-2c49f5c4cd1e)
+
+Then on the upperright corner, you can see a field called <i>test</i>. You click on it. Then you click on the Import button:
+![Screenshot 2023-10-23 at 18 24 42](https://github.com/takinsolutions/Zellij/assets/143809569/b0ce8814-1e65-4dc7-b947-456e943c671d)
+
+Lastly you need click on the choose file, and then select the <i> db -backup.sql </i> file. 
+![Screenshot 2023-10-23 at 18 28 53](https://github.com/takinsolutions/Zellij/assets/143809569/9b8784f4-5a17-43e9-898e-b7fd4164dac1)
 
 
-### Set up Zellij on PythonAnywhere
+
+
+
+# Set up Zellij on PythonAnywhere
 
 1. **Create a PythonAnywhere Account**
 
