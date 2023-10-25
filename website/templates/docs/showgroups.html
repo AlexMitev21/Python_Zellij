@@ -51,25 +51,32 @@
                 {% endif %}
 
                 {% for item in sorted_list %}
-                    {% if item["Contains"]|length > 0 %}
-                        <tr>
-                            {% for field in fields if field not in hideable_keys %}
-                                {% if field == 'Name' %}
-                                    <td>
-                                        <a href="#"
-                                           onclick="onItemClick('{{ url_for('docs.patternitemdisplay', apikey=apikey, pattern=scraper, search=item['KeyField']) }}')">
-                                            {{ item["Name"] }}
-                                        </a>
-                                    </td>
-                                {% else %}
-                                    <td>
-                                        <<div class="custom-div">
-                                            {% if item[field].startswith('http://') or item[field].startswith('https://') %}
-                                                <a href="{{ item[field] }}" target="_blank">{{ item[field] }}</a>
-                                            {% else %}
-                                                {{ item[field] }}
-                                            {% endif %}
-                                        </div>
+    {% if item["Contains"]|length > 0 %}
+        <tr>
+            {% for field in fields if field not in hideable_keys %}
+                {% if field == 'Name' %}
+                    <td>
+                        <a href="#"
+                           onclick="onItemClick('{{ url_for('docs.patternitemdisplay', apikey=apikey, pattern=scraper, search=item['KeyField']) }}')">
+                            {{ item["Name"] }}
+                        </a>
+                    </td>
+                {% else %}
+                    <td>
+                        <div class="custom-div">
+                            {% if item[field] | string | regex_replace('^(http|https)://', '') != item[field] %}
+                                <a href="{{ item[field] }}" target="_blank">{{ item[field] }}</a>
+                            {% else %}
+                                {{ item[field] }}
+                            {% endif %}
+                        </div>
+                    </td>
+                {% endif %}
+            {% endfor %}
+        </tr>
+    {% endif %}
+{% endfor %}
+
                                         
                                         
                                         
