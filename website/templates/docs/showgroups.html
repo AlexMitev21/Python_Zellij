@@ -63,7 +63,7 @@
                     </td>
                 {% else %}
                     <td>
-                        <div class="custom-div">
+                        <div>
                             {% if item[field] | string | regex_replace('^(http|https)://', '') != item[field] %}
                                 <a href="{{ item[field] }}" target="_blank">{{ item[field] }}</a>
                             {% else %}
