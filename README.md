@@ -7,7 +7,8 @@ First you need to download the file of the actual Zellij. You can have to option
 - You can open a terminal navigate to the directory where you want the Zellij to be created.
 - The you tun the following command: 
 ```
-git clone https://github.com/AlexMitev21/My_Zellij.git
+git clone https://github.com/AlexMitev21/Python_Zellij.git
+
 ```
 If you are asked for a API token, you can ask the owenr of the repository to generate one. 
 
