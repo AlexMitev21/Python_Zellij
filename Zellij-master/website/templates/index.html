@@ -1,0 +1,204 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Zellij</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link href="https://fonts.googleapis.com/css?family=Mukta+Mahee:200,300,400|Abril+Fatface:400,700" rel="stylesheet">
+
+    <link rel="stylesheet" href="static/css/bootstrap.css">
+    <link rel="stylesheet" href="static/css/animate.css">
+    <link rel="stylesheet" href="static/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="static/css/aos.css">
+    <link rel="stylesheet" href="static/css/fancybox.min.css">
+    <link rel="stylesheet" href="static/ css/animsition.min.css">
+    
+
+    <link rel="stylesheet" href="fonts/ionicons/css/ionicons.min.css">
+    <link rel="stylesheet" href="fonts/fontawesome/css/font-awesome.min.css">
+
+    <!-- Theme Style -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" />
+
+
+
+
+  </head>
+  <body>
+    <div class="js-animsition animsition" id="site-wrap" data-animsition-in-class="fade-in" data-animsition-out-class="fade-out">
+    
+    <header class="site-header">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-4 site-logo" data-aos="fade"><a href="index.html" class="animsition-link">Zellij</a></div>
+          <div class="col-8">
+
+
+            <div class="site-menu-toggle js-site-menu-toggle"  data-aos="fade">
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
+            <!-- END menu-toggle -->
+
+           <div class="site-navbar js-site-navbar">
+            <nav role="navigation">
+                <div class="container">
+                    <div class="row full-height align-items-center">
+                        <div class="col-md-12 justify-content-center">
+                            <ul class="list-unstyled menu">
+                                
+                                {%- if g.user %}
+                                <li><a href="{{ url_for('pages.mainpage') }}">Home</a></li>
+                                <li><a href="{{ url_for('docs.main') }}">Generate Documentation</a></li>
+                                <li class="two-words"><a href="{{ url_for('datasources.connections') }}">Manage Data Sources</a></li>
+                                <li class="two-words"><a href="{{ url_for('tools.jsonconverter') }}">RDF to JSON-LD</a></li>
+                                <li class="two-words"><a href="{{ url_for('docs.multipleIndexGeneration') }}">Multiple Index</a></li>
+                                <li class="user name"><a href="{{ url_for('user.edit') }}"><i class="fas fa-user"></i>{{ g.user['username'] }}</a></li>
+                                <li class="user"><a href="{{ url_for('user.logout') }}">Log Out</a></li>
+                                {% else %}
+                                <li><a href="{{ url_for('docs.main') }}">Generate Documentation</a></li>
+                                <li class="two-words"><a href="#">Alphabetical Index</a></li>
+                                <li class="user"><a href="{{ url_for('user.create') }}">Create Account</a></li>
+                                <li class="user"><a href="{{ url_for('user.login') }}">Log In</a></li>
+                                {% endif %}
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        </div>
+        
+    </div>
+  </div>
+</header>
+
+    <!-- END head -->
+
+    <section class="site-hero overlay" style="background-image: url(static/images/banner1.desktop.jpg)">
+      <div class="container">
+        <div class="row site-hero-inner justify-content-center align-items-center">
+          <div class="col-md-10 text-center">
+            <h1 class="heading mb-4" data-aos="fade-up">Zellij</h1>
+            <p class="sub-heading mb-5" data-aos="fade-up" data-aos-delay="100">
+              Where Data Flourishes into Meaning. <a href="https://zellij.pythonanywhere.com/" target="_blank"></a>. 
+            </p>
+            <p class="pt-4" data-aos="fade-up" data-aos-delay="100">
+              <a href="https://alexmitev21.pythonanywhere.com/docs//" target="_blank" class="btn uppercase btn-outline-light d-sm-inline d-block py-3">Visit Zellij</a>
+            </p>
+          </div>
+        </div>
+        <p  data-aos="fade-up" data-aos-offset="-500"><a href="#next-section" class="scroll-down smoothscroll"> <span class="fa fa-play"></span> Scroll Down</a></p>
+      </div>
+    </section>
+    <!-- END section -->
+
+    
+  
+
+
+    <section class="section slider-section">
+      <div class="container">
+        <div class="row justify-content-center text-center mb-5">
+          <div class="col-md-8">
+            <h2 class="heading" data-aos="fade-up">Data Integration</h2>
+            <p class="lead" data-aos="fade-up" data-aos-delay="100">
+              it empowers organizations to bring together disparate data from a multitude of sources into a unified,
+               coherent, and semantically rich ecosystem. This process involves extracting structured and unstructured data from databases, files, web services, and other repositories, and then harmonizing and transforming it to adhere to a common data model and ontology. The platform should provide tools and connectors to facilitate this data ingestion and integration, allowing users to map relationships and semantics across datasets. Data integration within a semantic context goes beyond traditional ETL (Extract, Transform, Load) processes by preserving the meaning and context of data attributes, 
+              enabling more advanced querying, reasoning, and analytics. .</p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12">
+            <div class="home-slider major-caousel owl-carousel mb-5" data-aos="fade-up" data-aos-delay="200">
+              <div class="slider-item">
+                <img src="static/images/ETL process DataChannel.webp" alt="Image placeholder" class="img-fluid">
+              </div>
+              <div class="slider-item">
+                <img src="static/images/data-warehousing1-1024x505.png.webp" alt="Image placeholder" class="img-fluid">
+              </div>
+              
+            <!-- END slider -->
+          </div>
+        
+        </div>
+      </div>
+    </section>
+    <!-- END section -->
+    
+    <section class="section blog-post-entry bg-light slant-top">
+      <div class="container">
+        <div class="row justify-content-center text-center mb-5">
+          <div class="col-md-8 primary-bg-text">
+            <h2 class="heading" data-aos="fade-up">Data Info</h2>
+            <p class="lead" data-aos="fade-up">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.</p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-lg-4 col-md-6 col-sm-6 col-12 post" data-aos="fade-up" data-aos-delay="100">
+
+            <div class="media media-custom d-block mb-4">
+              <a href="#" class="mb-4 d-block"><img src="static/images/etl.jpeg" alt="Image placeholder" class="img-fluid"></a>
+              <div class="media-body">
+                <span class="meta-post"></span>
+                <h2 class="mt-0 mb-3"><a href="#">ETL Process</a></h2>
+                This is the section for the ETL PROCESS DESCRIPTION
+                <p> </p>
+              </div>
+            </div>
+
+          </div>
+          <div class="col-lg-4 col-md-6 col-sm-6 col-12 post" data-aos="fade-up" data-aos-delay="200">
+            <div class="media media-custom d-block mb-4">
+              <a href="#" class="mb-4 d-block"><img src="static/images/artikelnpp.png" alt="Image placeholder" class="img-fluid"></a>
+              <div class="media-body">
+                <span class="meta-post"></span>
+                <h2 class="mt-0 mb-3"><a href="#">DATA LAKES</a></h2>
+                <p>This is the section for the Data Lakes Description. </p>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6 col-sm-12 col-12 post" data-aos="fade-up" data-aos-delay="300">
+            <div class="media media-custom d-block mb-4">
+              <a href="#" class="mb-4 d-block"><img src="static/images/big-data-warehouse.png" alt="Image placeholder" class="img-fluid"></a>
+              <div class="media-body">
+                <span class="meta-post"></span>
+                <h2 class="mt-0 mb-3"><a href="#">Data Structure</a></h2>
+                <p>This is the section for the data structure. </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+<!-- Footer Section Start -->
+<footer>          
+  <div class="container">
+    <div class="row">
+      <!-- Footer Links -->
+      
+      <div class="col-lg-6 col-sm-6 col-xs-12">
+        <div class="copyright">
+          <p>All copyrights reserved &copy; 
+           Designed & Developed by Alex Mitev </p>
+        </div>
+      </div>  
+    </div>
+  </div>
+</footer>
+<!-- Footer Section End --> 
+
+  </div> <!-- .animsition -->
+    
+    <script src="static/js/jquery-3.2.1.min.js"></script>
+    <script src="static/js/popper.min.js"></script>
+    <script src="static/js/bootstrap.min.js"></script>
+    <script src="static/js/owl.carousel.min.js"></script>
+    <script src="static/js/jquery.fancybox.min.js"></script>
+    <script src="static/js/animsition.min.js"></script>
+    <script src="static/js/aos.js"></script>
+    <script src="static/js/main.js"></script>
+  </body>
+</html>
