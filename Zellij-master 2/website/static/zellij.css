@@ -1,0 +1,425 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    font-weight: normal;
+    line-height: 1.5;
+    color: #333; /* Text color */
+}
+
+h1 > img.logo {
+    width: 64px;
+    height: 64px;
+    vertical-align: middle;
+}
+
+table {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    font-weight: normal;
+    line-height: 1.6;
+}
+
+table.toc {
+    background-color: #F7F7F7;
+    width: 100%;
+    text-align: left;
+    border-collapse: collapse;
+    border: 1px solid #1C6EA4;
+}
+
+.attributes-table > tbody > tr > td > div {
+    max-height: 100px;
+    height: 100px;
+    overflow: auto;
+}
+
+table.toc td.toctitle {
+    text-align: center;
+    font-size: 24px;
+    background-color: #1C6EA4;
+    color: white;
+}
+
+table.toc td,
+table.zellij th {
+    padding: 10px;
+}
+
+table.toc tr:nth-child(even) {
+    background: #EAF1FD;
+}
+
+table.toc thead {
+    background: #1C6EA4;
+    border-bottom: 2px solid #000066;
+}
+
+table.toc thead th {
+    color: #FFF;
+    text-align: center;
+}
+
+.selected-list-item {
+    background: #ddeeff;
+}
+
+code,
+pre {
+    font-size: 12px;
+    line-height: 1.4;
+}
+
+#patternmenu {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    height: 64px;
+    background: #F7F7F7;
+    min-width: 640px;
+    width: 100%;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 700;
+}
+
+#patternmenu li {
+    display: block;
+    width: 33.33%;
+    height: 64px;
+    float: left;
+    margin-left: 0;
+    margin-right: 2px;
+}
+
+#patternmenu a {
+    display: block;
+    height: 64px;
+    padding: 12px;
+    text-decoration: none;
+    text-align: center;
+    line-height: 40px;
+    background: hsl(210, 50%, 60%);
+    color: hsl(210, 100%, 90%);
+    border: 2px solid hsl(210, 50%, 60%);
+}
+
+#patternmenu a:hover {
+    background: hsl(210, 50%, 75%);
+    color: hsl(210, 100%, 50%);
+}
+
+section.flash > div {
+    border: 1px solid #333;
+    border-radius: 6px;
+    margin: 8px 0;
+    padding: 10px;
+}
+
+section.flash > div > i:first-of-type {
+    font-size: 24px;
+    float: left;
+    margin: 0 10px 0 0;
+    color: #333;
+}
+
+section.flash > div > ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.menu-btn {
+    position: absolute;
+    color: #333;
+    font-size: 24px;
+    margin: 15px;
+    cursor: pointer;
+}
+
+.side-bar {
+    background: #F7F7F7;
+    backdrop-filter: blur(15px);
+    width: 250px;
+    height: 100vh;
+    position: fixed;
+    left: -250px;
+    overflow-y: auto;
+    transition: left 0.6s ease;
+    margin-top: 15px;
+}
+
+.side-bar.active {
+    left: 0;
+}
+
+.close-btn {
+    position: absolute;
+    color: #333;
+    font-size: 20px;
+    right: 15px;
+    margin-top: 15px;
+    cursor: pointer;
+}
+
+.side-bar .h1 {
+    color: #333;
+    text-align: left;
+    font-weight: 700;
+    font-size: 24px;
+    padding: 10px 15px;
+    font-family: Arial, Helvetica, sans-serif;
+    letter-spacing: 2px;
+}
+
+.side-bar .menu {
+    width: 100%;
+    margin-top: 30px;
+}
+
+.side-bar .menu .item {
+    position: relative;
+    cursor: pointer;
+}
+
+.side-bar .menu .item a {
+    color: #333;
+    font-size: 16px;
+    text-decoration: none;
+    display: block;
+    padding: 10px 30px;
+    line-height: 40px;
+    font-weight: bold;
+}
+
+.side-bar .menu .item a[tabindex]:focus {
+    background: hsl(210, 100%, 90%);
+    outline: none;
+    text-decoration: underline;
+}
+
+.side-bar .menu .item a:hover {
+    background: hsl(210, 100%, 90%);
+    transition: 0.3s ease;
+}
+
+.side-bar .menu .item .sub-menu a {
+    color: #333;
+    font-size: 14px;
+    text-decoration: none;
+    display: block;
+    padding: 10px 70px;
+    line-height: 30px;
+}
+
+.side-bar .menu .item .sub-menu {
+    background: #F7F7F7;
+    display: none;
+}
+
+.side-bar .menu .item .sub-menu a {
+    padding-left: 90px;
+}
+
+.rotate {
+    transform: rotate(90deg);
+}
+
+/* Section for the frames */
+
+.contents {
+    margin-top: 35px;
+    position: absolute;
+    left: 250px;
+    width: calc(100% - 250px);
+    height: 100%;
+    border: none;
+    padding-top:140px;
+}
+
+/*IFrame Section */
+
+.contents1 {
+    margin-top: 35px;
+    position: absolute;
+    left: 250px;
+    width: calc(100% - 250px);
+    height: 100%;
+    border: none;
+    padding-top: 10px;
+}
+
+/* LOGO CENTER */
+.centered {
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    height: 100%; /* Ensure the li fills the height of the nav */
+}
+
+/* MENU_SNIPPET CSS CODE */ 
+
+.menu-items {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.menu-items .user {
+    margin-right: 400px; /* Add some spacing between user-related items and right-align them */
+}
+
+.menu-items > div {
+    margin-left: 0px; /* Add some spacing between left-aligned items */
+}
+
+
+/* TOP NAVIGATION SECTION */
+
+/* Style the top navigation bar */
+.top-navigation {
+    background-color: #333; /* Background color */
+    color: #fff; /* Text color */
+    text-align: center;
+    padding: 90px;
+    height: 10px;/* Set Height to the text */
+    line-height: 65px;
+    position: static;
+}
+
+/* TOP NAVIGATION SECTION FOR GENERATE DOCUMENTATION */
+.top-navigation1 {
+    background-color: #333; /* Background color */
+    color: #fff; /* Text color */
+    text-align: center;
+    padding: 90px;
+    height: 55px;/* Set Height to the text */
+    line-height: 160px;
+    position:sticky;
+}
+
+
+
+
+.nav-link-description {
+    position: absolute;
+    z-index: 1;
+    background-color: #333;
+    color: #FFF;
+    padding: 5px;
+    border-radius: 5px;
+    font-size: 14px;
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0s, opacity 0.5s ease;
+}
+
+.sub-menu a:hover + .nav-link-description {
+    visibility: visible;
+    opacity: 1;
+}
+/* Sidebar Styles */
+
+
+.side-bar {
+    background: #f7f7f7;
+    width: 200px;
+    height: 100vh;
+    position: fixed;
+    left: 0;
+    overflow-y: auto;
+    transition: 0.3s ease;
+    border: 2px solid #333; /* Add border styles here */
+    padding: 10px; /* Add padding to create space between the border and htent */
+}
+.side-bar.full-height {
+    height: 150vh; /* Set full height at the bottom */
+}
+
+.side-bar::-webkit-scrollbar {
+    width: 6px;
+}
+
+.side-bar::-webkit-scrollbar-thumb {
+    background-color: #666;
+    border-radius: 3px;
+}
+
+.side-bar.active {
+    left: 0;
+}
+
+.close-btn {
+    position: absolute;
+    color: #333;
+    font-size: 20px;
+    right: 15px;
+    top: 15px;
+    cursor: pointer;
+}
+
+.side-bar .h1 {
+    color: #333;
+    text-align: center;
+    font-weight: 600;
+    font-size: 24px;
+    padding: 15px 0;
+    font-family: "Arial", sans-serif;
+}
+
+.side-bar .menu {
+    width: 100%;
+    margin-top: 15px;
+}
+
+.side-bar .menu .item {
+    position: relative;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.side-bar .menu .item a {
+    color: #333;
+    font-size: 16px;
+    text-decoration: none;
+    display: block;
+    padding: 12px 20px;
+    font-family: "Arial", sans-serif;
+    font-weight: 500;
+}
+
+.side-bar .menu .item a[tabindex]:focus {
+    background: #ddeeff;
+    outline: none;
+    text-decoration: underline;
+}
+
+.side-bar .menu .item a:hover {
+    background: #ddeeff;
+    transition: 0.3s ease;
+}
+
+.side-bar .menu .item .sub-menu {
+    display: none;
+    background: #fff;
+    border-top: 1px solid #ccc;
+}
+
+.side-bar .menu .item .sub-menu a {
+    color: #333;
+    font-size: 14px;
+    text-decoration: none;
+    display: block;
+    padding: 10px 20px;
+    font-family: "Arial", sans-serif;
+    font-weight: 400;
+    transition: 0.3s;
+}
+
+.side-bar .menu .item .sub-menu a:hover {
+    background: #ddeeff;
+}
+
+/* Rotate Effect */
+.rotate {
+    transform: rotate(90deg);
+}
+

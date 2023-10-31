@@ -1,0 +1,15 @@
+<div class="menu-items">
+    {% if g.user %}
+        <div><a href="{{ url_for('docs.main') }}">Generate Documentation</a></div>
+        <div><a href="{{ url_for('datasources.connections') }}">Manage Data Sources</a></div>
+        <div><a href="{{ url_for('tools.jsonconverter') }}">RDF to JSON-LD</a></div>
+        <div><a href="{{ url_for('docs.multipleIndexGeneration') }}">Multiple Index</a></div>
+        <div class="user name"><a href="{{ url_for('user.edit') }}"><i class="fas fa-user"></i>{{ g.user['username'] }}</a></div>
+        <div class="user"><a href="{{ url_for('user.logout') }}">Log Out</a></div>
+    {% else %}
+        <div><a href="{{ url_for('docs.main') }}">Generate Documentation</a></div>
+        <div><a>Alphabetical<br/>Index</a></div>
+        <div class="user"><a href="{{ url_for('user.create') }}">Create Account</a></div>
+        <div class="user"><a href="{{ url_for('user.login') }}">Log In</a></div>
+    {% endif %}
+</div>

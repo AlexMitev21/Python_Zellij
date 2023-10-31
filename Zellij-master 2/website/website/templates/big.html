@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>Zellīj Ontological Toolkit</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='zellij.css') }}" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='zellijui.css') }}" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='zellijbig.css') }}" />
+</head>
+<body>
+    <nav>
+        <div><ul id="mainmenu">
+            {% include 'menu.snippet.html' %}
+        </div>
+    </nav>
+   
+	<!-- New top-navigation bar -->
+    {% block top_navigation %}
+<section class="top-navigation">
+    <a href="#">Feature 1</a>
+    <a href="#">Feature 2</a>
+    <a href="#">Feature 3</a>
+</section>
+{% endblock %}
+
+
+    <section class="content" style="padding-top:140px;">
+        <header>
+            {% block header %}{% endblock %}
+        </header>
+        {% for message in get_flashed_messages() %}
+        <div class="flash">{{ message }}</div>
+        {% endfor %}
+        {% block content %}{% endblock %}
+    </section>
+</body>
+</html>
