@@ -14,3 +14,4 @@ bp = Blueprint("pages", __name__)
 def mainpage():
     return render_template("index.html")
 
+/Users/amitev/Zellij-master
